@@ -1,0 +1,66 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+
+# Virtual Environment
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+
+# Environment Variables
+.env
+
+# Logs
+logs/
+*.log
+
+# Airflow
+airflow/logs/
+airflow/airflow.db
+
+# Python cache
+*.pyc
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Build
+build/
+dist/
+
+# Coverage
+.coverage
+htmlcov/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Docker
+docker-data/
+
+# PostgreSQL
+postgres-data/
+
+# Redis
+redis-data/
+
+# Kafka
+kafka-data/
+zookeeper-data/
+
+# Grafana
+grafana-data/
+
+# Prometheus
+prometheus-data/
