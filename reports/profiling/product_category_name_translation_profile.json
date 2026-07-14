@@ -1,0 +1,21 @@
+{
+    "dataset_name": "product_category_name_translation.csv",
+    "rows": 71,
+    "columns": 2,
+    "memory_usage_mb": 0.01,
+    "duplicate_rows": 0,
+    "column_profiles": {
+        "product_category_name": {
+            "data_type": "object",
+            "missing_values": 0,
+            "missing_percentage": 0.0,
+            "unique_values": 71
+        },
+        "product_category_name_english": {
+            "data_type": "object",
+            "missing_values": 0,
+            "missing_percentage": 0.0,
+            "unique_values": 71
+        }
+    }
+}

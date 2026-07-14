@@ -1,0 +1,57 @@
+{
+    "dataset_name": "olist_orders_dataset.csv",
+    "rows": 99441,
+    "columns": 8,
+    "memory_usage_mb": 52.94,
+    "duplicate_rows": 0,
+    "column_profiles": {
+        "order_id": {
+            "data_type": "object",
+            "missing_values": 0,
+            "missing_percentage": 0.0,
+            "unique_values": 99441
+        },
+        "customer_id": {
+            "data_type": "object",
+            "missing_values": 0,
+            "missing_percentage": 0.0,
+            "unique_values": 99441
+        },
+        "order_status": {
+            "data_type": "object",
+            "missing_values": 0,
+            "missing_percentage": 0.0,
+            "unique_values": 8
+        },
+        "order_purchase_timestamp": {
+            "data_type": "object",
+            "missing_values": 0,
+            "missing_percentage": 0.0,
+            "unique_values": 98875
+        },
+        "order_approved_at": {
+            "data_type": "object",
+            "missing_values": 160,
+            "missing_percentage": 0.16,
+            "unique_values": 90733
+        },
+        "order_delivered_carrier_date": {
+            "data_type": "object",
+            "missing_values": 1783,
+            "missing_percentage": 1.79,
+            "unique_values": 81018
+        },
+        "order_delivered_customer_date": {
+            "data_type": "object",
+            "missing_values": 2965,
+            "missing_percentage": 2.98,
+            "unique_values": 95664
+        },
+        "order_estimated_delivery_date": {
+            "data_type": "object",
+            "missing_values": 0,
+            "missing_percentage": 0.0,
+            "unique_values": 459
+        }
+    }
+}

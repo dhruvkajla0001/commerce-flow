@@ -1,0 +1,39 @@
+{
+    "dataset_name": "olist_order_payments_dataset.csv",
+    "rows": 103886,
+    "columns": 5,
+    "memory_usage_mb": 16.23,
+    "duplicate_rows": 0,
+    "column_profiles": {
+        "order_id": {
+            "data_type": "object",
+            "missing_values": 0,
+            "missing_percentage": 0.0,
+            "unique_values": 99440
+        },
+        "payment_sequential": {
+            "data_type": "int64",
+            "missing_values": 0,
+            "missing_percentage": 0.0,
+            "unique_values": 29
+        },
+        "payment_type": {
+            "data_type": "object",
+            "missing_values": 0,
+            "missing_percentage": 0.0,
+            "unique_values": 5
+        },
+        "payment_installments": {
+            "data_type": "int64",
+            "missing_values": 0,
+            "missing_percentage": 0.0,
+            "unique_values": 24
+        },
+        "payment_value": {
+            "data_type": "float64",
+            "missing_values": 0,
+            "missing_percentage": 0.0,
+            "unique_values": 29077
+        }
+    }
+}

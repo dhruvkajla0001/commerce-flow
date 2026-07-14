@@ -1,0 +1,63 @@
+{
+    "dataset_name": "olist_products_dataset.csv",
+    "rows": 32951,
+    "columns": 9,
+    "memory_usage_mb": 6.3,
+    "duplicate_rows": 0,
+    "column_profiles": {
+        "product_id": {
+            "data_type": "object",
+            "missing_values": 0,
+            "missing_percentage": 0.0,
+            "unique_values": 32951
+        },
+        "product_category_name": {
+            "data_type": "object",
+            "missing_values": 610,
+            "missing_percentage": 1.85,
+            "unique_values": 73
+        },
+        "product_name_lenght": {
+            "data_type": "float64",
+            "missing_values": 610,
+            "missing_percentage": 1.85,
+            "unique_values": 66
+        },
+        "product_description_lenght": {
+            "data_type": "float64",
+            "missing_values": 610,
+            "missing_percentage": 1.85,
+            "unique_values": 2960
+        },
+        "product_photos_qty": {
+            "data_type": "float64",
+            "missing_values": 610,
+            "missing_percentage": 1.85,
+            "unique_values": 19
+        },
+        "product_weight_g": {
+            "data_type": "float64",
+            "missing_values": 2,
+            "missing_percentage": 0.01,
+            "unique_values": 2204
+        },
+        "product_length_cm": {
+            "data_type": "float64",
+            "missing_values": 2,
+            "missing_percentage": 0.01,
+            "unique_values": 99
+        },
+        "product_height_cm": {
+            "data_type": "float64",
+            "missing_values": 2,
+            "missing_percentage": 0.01,
+            "unique_values": 102
+        },
+        "product_width_cm": {
+            "data_type": "float64",
+            "missing_values": 2,
+            "missing_percentage": 0.01,
+            "unique_values": 95
+        }
+    }
+}

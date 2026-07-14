@@ -1,0 +1,39 @@
+{
+    "dataset_name": "olist_geolocation_dataset.csv",
+    "rows": 1000163,
+    "columns": 5,
+    "memory_usage_mb": 129.38,
+    "duplicate_rows": 261831,
+    "column_profiles": {
+        "geolocation_zip_code_prefix": {
+            "data_type": "int64",
+            "missing_values": 0,
+            "missing_percentage": 0.0,
+            "unique_values": 19015
+        },
+        "geolocation_lat": {
+            "data_type": "float64",
+            "missing_values": 0,
+            "missing_percentage": 0.0,
+            "unique_values": 717360
+        },
+        "geolocation_lng": {
+            "data_type": "float64",
+            "missing_values": 0,
+            "missing_percentage": 0.0,
+            "unique_values": 717613
+        },
+        "geolocation_city": {
+            "data_type": "object",
+            "missing_values": 0,
+            "missing_percentage": 0.0,
+            "unique_values": 8011
+        },
+        "geolocation_state": {
+            "data_type": "object",
+            "missing_values": 0,
+            "missing_percentage": 0.0,
+            "unique_values": 27
+        }
+    }
+}

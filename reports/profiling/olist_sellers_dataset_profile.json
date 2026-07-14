@@ -1,0 +1,33 @@
+{
+    "dataset_name": "olist_sellers_dataset.csv",
+    "rows": 3095,
+    "columns": 4,
+    "memory_usage_mb": 0.59,
+    "duplicate_rows": 0,
+    "column_profiles": {
+        "seller_id": {
+            "data_type": "object",
+            "missing_values": 0,
+            "missing_percentage": 0.0,
+            "unique_values": 3095
+        },
+        "seller_zip_code_prefix": {
+            "data_type": "int64",
+            "missing_values": 0,
+            "missing_percentage": 0.0,
+            "unique_values": 2246
+        },
+        "seller_city": {
+            "data_type": "object",
+            "missing_values": 0,
+            "missing_percentage": 0.0,
+            "unique_values": 611
+        },
+        "seller_state": {
+            "data_type": "object",
+            "missing_values": 0,
+            "missing_percentage": 0.0,
+            "unique_values": 23
+        }
+    }
+}

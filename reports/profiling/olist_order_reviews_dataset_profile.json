@@ -1,0 +1,51 @@
+{
+    "dataset_name": "olist_order_reviews_dataset.csv",
+    "rows": 99224,
+    "columns": 7,
+    "memory_usage_mb": 39.12,
+    "duplicate_rows": 0,
+    "column_profiles": {
+        "review_id": {
+            "data_type": "object",
+            "missing_values": 0,
+            "missing_percentage": 0.0,
+            "unique_values": 98410
+        },
+        "order_id": {
+            "data_type": "object",
+            "missing_values": 0,
+            "missing_percentage": 0.0,
+            "unique_values": 98673
+        },
+        "review_score": {
+            "data_type": "int64",
+            "missing_values": 0,
+            "missing_percentage": 0.0,
+            "unique_values": 5
+        },
+        "review_comment_title": {
+            "data_type": "object",
+            "missing_values": 87656,
+            "missing_percentage": 88.34,
+            "unique_values": 4527
+        },
+        "review_comment_message": {
+            "data_type": "object",
+            "missing_values": 58247,
+            "missing_percentage": 58.7,
+            "unique_values": 36159
+        },
+        "review_creation_date": {
+            "data_type": "object",
+            "missing_values": 0,
+            "missing_percentage": 0.0,
+            "unique_values": 636
+        },
+        "review_answer_timestamp": {
+            "data_type": "object",
+            "missing_values": 0,
+            "missing_percentage": 0.0,
+            "unique_values": 98248
+        }
+    }
+}

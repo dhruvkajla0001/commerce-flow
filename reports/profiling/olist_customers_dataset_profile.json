@@ -1,0 +1,39 @@
+{
+    "dataset_name": "olist_customers_dataset.csv",
+    "rows": 99441,
+    "columns": 5,
+    "memory_usage_mb": 26.59,
+    "duplicate_rows": 0,
+    "column_profiles": {
+        "customer_id": {
+            "data_type": "object",
+            "missing_values": 0,
+            "missing_percentage": 0.0,
+            "unique_values": 99441
+        },
+        "customer_unique_id": {
+            "data_type": "object",
+            "missing_values": 0,
+            "missing_percentage": 0.0,
+            "unique_values": 96096
+        },
+        "customer_zip_code_prefix": {
+            "data_type": "int64",
+            "missing_values": 0,
+            "missing_percentage": 0.0,
+            "unique_values": 14994
+        },
+        "customer_city": {
+            "data_type": "object",
+            "missing_values": 0,
+            "missing_percentage": 0.0,
+            "unique_values": 4119
+        },
+        "customer_state": {
+            "data_type": "object",
+            "missing_values": 0,
+            "missing_percentage": 0.0,
+            "unique_values": 27
+        }
+    }
+}
