@@ -1,0 +1,36 @@
+
+
+services:
+
+  postgres:
+    image: postgres:16
+
+    container_name: commerceflow-postgres
+
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_DB: commerce_flow
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+      # SQL initialization scripts
+      - ./sql/schema:/docker-entrypoint-initdb.d/schema
+
+      # Master initialization script
+      - ./docker/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d commerce_flow"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:

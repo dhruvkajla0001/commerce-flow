@@ -40,3 +40,18 @@ for directory in [
     PROCESSED_DATA_DIR,
 ]:
     directory.mkdir(parents=True, exist_ok=True)
+
+
+# --------------------------------------------------
+# Database Configuration
+# --------------------------------------------------
+
+DB_HOST = "localhost"
+
+DB_PORT = 5432
+
+DB_NAME = "commerce_flow"
+
+DB_USER = "postgres"
+
+DB_PASSWORD = "postgres"
