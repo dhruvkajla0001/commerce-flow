@@ -11,6 +11,7 @@ from typing import Any
 from psycopg import Connection
 
 from app.core.logger import get_logger
+import math
 
 logger = get_logger(__name__)
 
@@ -62,9 +63,19 @@ class BatchWriter:
                         index:index + self.batch_size
                     ]
 
+                    clean_batch = [
+                        tuple(
+                            None
+                            if isinstance(value, float) and math.isnan(value)
+                            else value
+                            for value in record
+                        )
+                        for record in batch
+                    ]
+
                     cursor.executemany(
                         query,
-                        batch,
+                        clean_batch,
                     )
 
                     logger.info(

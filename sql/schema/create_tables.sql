@@ -88,6 +88,7 @@ CREATE TABLE IF NOT EXISTS fact_orders (
     order_key SERIAL PRIMARY KEY,
 
     order_id VARCHAR(50) NOT NULL,
+    order_item_id INTEGER NOT NULL,
 
     customer_key INTEGER NOT NULL,
     product_key INTEGER NOT NULL,

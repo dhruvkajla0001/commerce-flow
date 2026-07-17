@@ -10,6 +10,9 @@
 CREATE INDEX IF NOT EXISTS idx_fact_orders_order_id
 ON fact_orders(order_id);
 
+CREATE INDEX IF NOT EXISTS idx_fact_orders_order_item_id
+ON fact_orders(order_item_id);
+
 CREATE INDEX IF NOT EXISTS idx_fact_orders_customer_key
 ON fact_orders(customer_key);
 
@@ -30,7 +33,6 @@ ON fact_orders(payment_value);
 
 CREATE INDEX IF NOT EXISTS idx_fact_orders_review_score
 ON fact_orders(review_score);
-
 
 -- =====================================================
 -- Dimension Table Indexes

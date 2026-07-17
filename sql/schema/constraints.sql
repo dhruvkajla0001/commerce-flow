@@ -42,3 +42,7 @@ CHECK (freight_value >= 0);
 ALTER TABLE fact_orders
 ADD CONSTRAINT chk_payment
 CHECK (payment_value >= 0);
+
+ALTER TABLE fact_orders
+ADD CONSTRAINT fact_orders_order_item_unique
+UNIQUE (order_id, order_item_id);
