@@ -128,15 +128,18 @@ class CustomersLoader(CSVLoader):
 
     def run(self) -> None:
         """
-        Execute the customer ETL pipeline.
+        Execute the complete customer ETL pipeline.
+
+        Steps:
+        1. Extract customer data from CSV.
+        2. Transform and validate the data.
+        3. Load the transformed data into PostgreSQL.
         """
 
         logger.info("Starting Customers ETL.")
 
         dataframe = self.extract()
-
         dataframe = self.transform(dataframe)
-
         self.load(dataframe)
 
         logger.info("Customers ETL completed successfully.")

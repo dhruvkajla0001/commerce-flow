@@ -1,13 +1,16 @@
 """
 Centralized logging configuration for the CommerceFlow project.
 
-This module provides a reusable logger instance for all project modules.
-Logs are written to both the console and a rotating log file.
+Supports:
+- Console logging
+- Rotating file logging
+- Airflow log integration
 """
 
 from __future__ import annotations
 
 import logging
+import os
 from logging.handlers import RotatingFileHandler
 from pathlib import Path
 
@@ -34,55 +37,58 @@ DATE_FORMAT = "%Y-%m-%d %H:%M:%S"
 
 def get_logger(name: str) -> logging.Logger:
     """
-    Create and return a configured logger.
+    Return a configured logger.
 
-    Parameters
-    ----------
-    name : str
-        Name of the logger (usually __name__).
-
-    Returns
-    -------
-    logging.Logger
-        Configured logger instance.
+    Works for both:
+    - Standalone Python execution
+    - Apache Airflow tasks
     """
 
     logger = logging.getLogger(name)
-
-    # Prevent duplicate handlers
-    if logger.handlers:
-        return logger
-
     logger.setLevel(LOG_LEVEL)
 
-    formatter = logging.Formatter(
-        fmt=LOG_FORMAT,
-        datefmt=DATE_FORMAT,
-    )
+    # Prevent duplicate handlers
+    if not logger.handlers:
 
-    # -------------------------------------------------------------------------
-    # Console Handler
-    # -------------------------------------------------------------------------
+        formatter = logging.Formatter(
+            fmt=LOG_FORMAT,
+            datefmt=DATE_FORMAT,
+        )
 
-    console_handler = logging.StreamHandler()
-    console_handler.setFormatter(formatter)
+        # -------------------------------------------------------------
+        # Console Handler
+        # -------------------------------------------------------------
+        console_handler = logging.StreamHandler()
+        console_handler.setLevel(LOG_LEVEL)
+        console_handler.setFormatter(formatter)
 
-    # -------------------------------------------------------------------------
-    # Rotating File Handler
-    # -------------------------------------------------------------------------
+        # -------------------------------------------------------------
+        # Rotating File Handler
+        # -------------------------------------------------------------
+        file_handler = RotatingFileHandler(
+            filename=LOG_FILE,
+            maxBytes=5 * 1024 * 1024,  # 5 MB
+            backupCount=5,
+            encoding="utf-8",
+        )
 
-    file_handler = RotatingFileHandler(
-        filename=LOG_FILE,
-        maxBytes=5 * 1024 * 1024,   # 5 MB
-        backupCount=5,
-        encoding="utf-8",
-    )
+        file_handler.setLevel(LOG_LEVEL)
+        file_handler.setFormatter(formatter)
 
-    file_handler.setFormatter(formatter)
+        logger.addHandler(console_handler)
+        logger.addHandler(file_handler)
 
-    logger.addHandler(console_handler)
-    logger.addHandler(file_handler)
-
-    logger.propagate = False
+    # -------------------------------------------------------------
+    # Airflow Integration
+    # -------------------------------------------------------------
+    #
+    # Airflow configures the root logger.
+    # Allow our logs to propagate so they appear
+    # in the Airflow Task Logs.
+    #
+    if os.getenv("AIRFLOW_HOME"):
+        logger.propagate = True
+    else:
+        logger.propagate = False
 
     return logger
