@@ -152,5 +152,8 @@ services:
       - ./airflow/logs:/opt/airflow/logs
       - ./airflow/plugins:/opt/airflow/plugins
 
+    
+      
+
 volumes:
   postgres_data:

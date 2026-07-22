@@ -8,6 +8,8 @@ from fastapi import FastAPI
 
 from app.api.routes.analytics import router as analytics_router
 from app.api.routes.health import router as health_router
+from app.api.routes.dashboard import router as dashboard_router
+from fastapi.staticfiles import StaticFiles
 
 # ==========================================================
 # OpenAPI Tags Metadata
@@ -175,11 +177,22 @@ backend engineering and data engineering practices.
 )
 
 # ==========================================================
+# Static Files
+# ==========================================================
+
+app.mount(
+    "/static",
+    StaticFiles(directory="app/static"),
+    name="static",
+)
+
+# ==========================================================
 # Register API Routers
 # ==========================================================
 
 app.include_router(health_router)
 app.include_router(analytics_router)
+app.include_router(dashboard_router)
 
 # ==========================================================
 # Root Endpoint

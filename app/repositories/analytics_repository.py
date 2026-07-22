@@ -415,10 +415,11 @@ class AnalyticsRepository:
 
         return [
             {
-                "product_category": row[0],
-                "total_order_items": row[1],
-                "total_revenue": float(row[2]),
-                "average_payment": float(row[3]),
+                "rank": row[0],
+                "product_category": row[1],
+                "total_order_items": row[2],
+                "total_revenue": float(row[3]),
+                "average_payment": float(row[4]),
             }
             for row in rows
         ]
@@ -889,5 +890,9 @@ class AnalyticsRepository:
             "total_revenue": float(row[0]),
             "total_orders": row[1],
             "total_customers": row[2],
-            "average_order_value": float(row[3]),
+            "total_sellers": row[3],
+            "total_products": row[4],
+            "average_order_value": float(row[5]),
+            "average_review_score": float(row[6]),
+            "average_freight_cost": float(row[7]),
         }
