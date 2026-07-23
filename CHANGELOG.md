@@ -1,10 +1,145 @@
 # Changelog
 
-All notable changes to **CommerceFlow** will be documented in this file.
+All notable changes to **CommerceFlow** are documented in this file.
+
+The project follows milestone-based semantic versioning, where each completed milestone is released as an incremental alpha version during development.
 
 The format follows the principles of **Keep a Changelog** and uses Semantic Versioning concepts for project milestones.
 
 ---
+
+
+# [v1.0.0-alpha.7] - 2026-07-23
+
+## 📊 Milestone 7 – CommerceFlow Operations Center Dashboard
+
+### Added
+
+- Introduced the CommerceFlow Operations Center dashboard.
+- Added server-side rendered dashboard using FastAPI and Jinja2.
+- Created responsive dashboard UI with Bootstrap 5.
+- Integrated Bootstrap Icons throughout the dashboard.
+- Added reusable base layout with shared navigation components.
+- Implemented dashboard route for rendering business analytics.
+- Added Dashboard Service layer to aggregate dashboard data.
+- Integrated Chart.js for business visualizations.
+- Implemented Monthly Revenue chart.
+- Added Executive KPI cards including:
+  - Total Revenue
+  - Total Orders
+  - Total Customers
+  - Total Products
+- Added Pipeline Status panel displaying ETL and API health.
+- Created reusable dashboard templates and partial components.
+- Added static assets for dashboard styling and JavaScript.
+
+### Improved
+
+- Reused existing Analytics Service for dashboard data retrieval.
+- Separated presentation logic from business logic.
+- Improved project architecture by introducing Dashboard Service.
+- Enhanced UI consistency using shared layouts and components.
+- Improved user experience with responsive dashboard design.
+
+### Validation
+
+- Successfully rendered Operations Center using FastAPI.
+- Verified dynamic KPI rendering.
+- Verified Chart.js integration with live analytics data.
+- Tested responsive layout across dashboard pages.
+- Confirmed dashboard integration with analytics service layer.
+
+---
+
+# [v1.0.0-alpha.6] - 2026-07-21
+
+## 🌐 Milestone 6 – FastAPI Analytics API
+
+### Added
+
+- Built production-inspired REST API using FastAPI.
+- Added layered API architecture following Repository-Service pattern.
+- Implemented dependency injection for database access.
+- Added dedicated analytics service layer.
+- Added analytics repository for SQL execution.
+- Added response schemas using Pydantic models.
+- Added automatic OpenAPI documentation.
+- Added Swagger UI documentation.
+- Added ReDoc documentation.
+
+### Analytics Endpoints
+
+Implemented REST endpoints for:
+
+#### Revenue Analytics
+
+- Total Revenue
+- Monthly Revenue
+- Monthly Running Revenue
+- Month-over-Month Growth
+- Revenue Pareto Analysis
+
+#### Product Analytics
+
+- Top Products
+- Top Product Category per State
+
+#### Customer Analytics
+
+- Top Customers
+- Customer Segmentation
+
+#### Seller Analytics
+
+- Top Sellers
+
+#### Geographic Analytics
+
+- Revenue by State
+- Top Revenue Cities
+
+#### Operational Analytics
+
+- Order Status Distribution
+
+#### Executive Dashboard
+
+- Dashboard KPI Summary
+
+### Added
+
+- Health check endpoint.
+- Centralized API routing.
+- Request validation.
+- Response serialization.
+- Interactive API documentation.
+
+### Improved
+
+- Introduced Repository-Service architecture.
+- Improved separation of concerns.
+- Centralized SQL execution.
+- Improved maintainability through modular routing.
+- Enhanced API consistency using response schemas.
+
+### Fixed
+
+- Fixed API dependency resolution.
+- Fixed database session handling.
+- Fixed analytics response formatting.
+- Fixed endpoint organization.
+- Fixed OpenAPI schema generation.
+
+### Validation
+
+- Successfully tested all analytics endpoints.
+- Verified Swagger documentation.
+- Verified ReDoc documentation.
+- Validated API responses against warehouse data.
+- Confirmed end-to-end analytics retrieval.
+
+---
+
 
 # [v1.0.0-alpha.5] - 2026-07-20
 
