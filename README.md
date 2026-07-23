@@ -961,6 +961,229 @@ PostgreSQL   Airflow Scheduler   Airflow Webserver
              CommerceFlow DAG
 ```
 
+
+---
+
+# 📊 CommerceFlow Operations Center
+
+CommerceFlow now includes a production-inspired **Operations Center Dashboard** that transforms analytical data into an interactive web interface.
+
+Unlike the REST API, which exposes business metrics as JSON responses, the Operations Center provides a visual experience for exploring key business insights through charts, KPI cards, and dashboard widgets.
+
+The dashboard is built using **FastAPI**, **Jinja2**, **Bootstrap 5**, and **Chart.js**, following a layered architecture that reuses the same analytics services powering the REST API.
+
+---
+
+# ✨ Dashboard Features
+
+Current dashboard capabilities include:
+
+- 📈 Executive KPI Cards
+- 💰 Total Revenue Overview
+- 📦 Total Orders Summary
+- 👥 Customer Overview
+- 🛍 Product Overview
+- 📊 Monthly Revenue Visualization
+- ⚙️ Pipeline Status Panel
+- 📱 Responsive Bootstrap Layout
+- 🎨 Modern Dashboard UI
+- 🔄 Shared Analytics Service Layer
+
+---
+
+# 🏗 Dashboard Architecture
+
+The dashboard follows the same layered architecture as the REST API.
+
+```text
+                User Browser
+                     │
+                     ▼
+            Dashboard Route
+          (FastAPI + Jinja2)
+                     │
+                     ▼
+            Dashboard Service
+                     │
+                     ▼
+            Analytics Service
+                     │
+                     ▼
+          Analytics Repository
+                     │
+                     ▼
+         PostgreSQL Data Warehouse
+```
+
+---
+
+# 🔄 Dashboard Request Flow
+
+```mermaid
+sequenceDiagram
+
+Browser->>FastAPI Dashboard: GET /dashboard
+
+FastAPI Dashboard->>Dashboard Service: Request Dashboard Data
+
+Dashboard Service->>Analytics Service: Fetch KPIs
+
+Analytics Service->>Repository: Execute SQL Queries
+
+Repository->>PostgreSQL: Retrieve Analytics
+
+PostgreSQL-->>Repository: Results
+
+Repository-->>Analytics Service: Business Metrics
+
+Analytics Service-->>Dashboard Service: Dashboard Data
+
+Dashboard Service-->>FastAPI Dashboard: Render Template
+
+FastAPI Dashboard-->>Browser: HTML Dashboard
+```
+
+---
+
+# 📊 Dashboard Components
+
+The Operations Center currently includes the following components.
+
+| Component | Description |
+|------------|-------------|
+| Executive KPIs | Revenue, Orders, Customers, Products |
+| Revenue Chart | Monthly Revenue Trend |
+| Pipeline Status | ETL & Analytics Health |
+| Navigation Sidebar | Dashboard Navigation |
+| Responsive Layout | Desktop & Tablet Friendly |
+
+---
+
+# 🛠 Dashboard Technology Stack
+
+| Layer | Technology |
+|--------|------------|
+| Backend | FastAPI |
+| Templates | Jinja2 |
+| Styling | Bootstrap 5 |
+| Icons | Bootstrap Icons |
+| Charts | Chart.js |
+| Data Source | PostgreSQL |
+| Services | Analytics Service Layer |
+
+---
+
+# 📂 Dashboard Structure
+
+```text
+app/
+│
+├── api/
+│   └── routes/
+│       ├── dashboard.py
+│       ├── analytics.py
+│       └── health.py
+│
+├── services/
+│   ├── dashboard_services.py
+│   └── analytics_services.py
+│
+├── templates/
+│   ├── base.html
+│   ├── dashboard.html
+│   └── partials/
+│       ├── navbar.html
+│       └── sidebar.html
+│
+└── static/
+    ├── css/
+    └── js/
+```
+
+---
+
+# 📸 Operations Center Preview
+
+The following screenshots will be added.
+
+| Screenshot | Description |
+|------------|-------------|
+| Dashboard Home | Operations Center |
+| KPI Cards | Executive Metrics |
+| Revenue Chart | Monthly Revenue Trend |
+| Pipeline Status | ETL & API Status |
+| Responsive Layout | Dashboard UI |
+
+Example folder:
+
+```text
+docs/
+└── images/
+    ├── dashboard-home.png
+    ├── dashboard-kpis.png
+    ├── revenue-chart.png
+    ├── pipeline-status.png
+```
+
+---
+
+# 🌐 Dashboard Route
+
+| Method | Endpoint | Description |
+|---------|----------|-------------|
+| GET | `/dashboard` | CommerceFlow Operations Center |
+
+---
+
+# 📈 Dashboard Data Flow
+
+```text
+CSV Dataset
+      │
+      ▼
+Python ETL Pipeline
+      │
+      ▼
+PostgreSQL Data Warehouse
+      │
+      ▼
+Analytics SQL
+      │
+      ▼
+Analytics Service
+      │
+      ▼
+Dashboard Service
+      │
+      ▼
+Operations Center Dashboard
+```
+
+---
+
+# 📊 Business Metrics Available
+
+The Operations Center currently visualizes the following business metrics.
+
+- 💰 Total Revenue
+- 📦 Total Orders
+- 👥 Total Customers
+- 🛍 Total Products
+- 📈 Monthly Revenue Trends
+- ⚙️ Pipeline Status
+
+Future dashboard releases will include:
+
+- Revenue by State
+- Product Performance
+- Customer Segmentation
+- Geographic Analytics
+- Seller Performance
+- Operational Insights
+
+---
+
+
 ---
 
 # 📂 Docker Services
@@ -1359,44 +1582,68 @@ Status:
 
 ---
 
+## ✅ Milestone 7 — Operations Center Dashboard
+
+Built a production-inspired analytics dashboard using FastAPI server-side rendering.
+
+Completed Features
+
+- FastAPI Dashboard Route
+- Dashboard Service Layer
+- Jinja2 Templates
+- Bootstrap 5 UI
+- Bootstrap Icons
+- Chart.js Integration
+- Executive KPI Cards
+- Monthly Revenue Visualization
+- Pipeline Status Panel
+- Responsive Layout
+
+Status:
+
+✔ Completed
+
+---
+
 # 🗺 Roadmap
 
-## 🚀 Version 1.0 (Current)
+## 🚀 Version 1.0 (Completed)
 
+- [x] Planning & Architecture
+- [x] Project Foundation
 - [x] Data Warehouse
 - [x] ETL Pipeline
-- [x] Airflow
 - [x] SQL Analytics
-- [x] FastAPI
-- [x] Docker
+- [x] Apache Airflow Orchestration
+- [x] FastAPI Analytics APIs
+- [x] Operations Center Dashboard
+- [x] Dockerized Infrastructure
 
 ---
 
-## 🚀 Version 2.0 (Planned)
+## 🚀 Version 1.1 (Next)
 
-- [ ] JWT Authentication
+- [ ] Monitoring & Observability
+- [ ] Structured Logging
+- [ ] OpenTelemetry
+- [ ] Prometheus Metrics
+- [ ] SigNoz Integration
+- [ ] Health Monitoring Dashboard
+
+---
+
+## 🚀 Version 2.0 (Future)
+
 - [ ] Redis Caching
-- [ ] Response Models
-- [ ] Pagination
-- [ ] Filtering
+- [ ] JWT Authentication
 - [ ] API Versioning
-- [ ] Unit Testing
-- [ ] CI/CD Pipeline
-- [ ] Monitoring
-- [ ] Cloud Deployment
-
----
-
-## 🚀 Version 3.0 (Future)
-
+- [ ] Pagination & Filtering
+- [ ] Unit & Integration Testing
+- [ ] GitHub Actions CI/CD
 - [ ] Kafka Streaming
 - [ ] Apache Spark
-- [ ] Incremental ETL
-- [ ] Real-Time Dashboard
-- [ ] Data Quality Monitoring
 - [ ] Kubernetes Deployment
-- [ ] Terraform Infrastructure
-- [ ] Multi-Environment Support
+- [ ] Cloud Deployment
 
 ---
 
